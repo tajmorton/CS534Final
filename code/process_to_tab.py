@@ -33,10 +33,10 @@ def write_tab_header(tab_out, feature_list, class_name):
     for v in feature_list.values():
         tab_out.write("%s\t" % v)
 
-    tab_out.write("discrete\n") # class if discrete
+    tab_out.write("discrete\n") # class label is discrete
 
-    tab_out.write("\t"*len(feature_list))
-    tab_out.write("class\n")
+    tab_out.write("\t"*len(feature_list)) # empty fields for each feature
+    tab_out.write("class\n") # mark last class as `class` for Orange
 
 def write_data_tab(tab_out, datafile):
     for line in open(datafile):
@@ -45,7 +45,8 @@ def write_data_tab(tab_out, datafile):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print >> sys.stderr, "Usage: process_to_tab.py names data tab_out"
+        print >> sys.stderr, "Usage: process_to_tab.py [ad.names] [ad.data] [TAB_OUT]"
+        print >> sys.stderr, "Converts dataset from C4.5 format to TAB Orange format."
         sys.exit(1)
 
     features, classes = parse_names(sys.argv[1])
