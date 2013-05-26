@@ -26,7 +26,17 @@ def test_classifier(model, data):
 def get_confusion_matrix(results, cutoff = 0.5):
     cms = orngStat.confusionMatrices(results, cutoff = cutoff)
 
-    return cm[0]
+    return cms[0]
+
+def get_stats(results):
+    result_dict = {}
+    cm = get_confusion_matrix(results)
+
+    result_dict['Accuracy'] = orngStat.CA(results)[0]
+    result_dict['Sensitivity'] = orngStat.sens(cm)
+    result_dict['Specificity'] = orngStat.spec(cm)
+
+    return result_dict
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -41,4 +51,11 @@ if __name__ == "__main__":
     train_CA, train_results = test_classifier(model, train_data)
     test_CA, test_results = test_classifier(model, test_data)
 
-    print "Train Accuracy: %f, Test Accuracy: %f" % (train_CA, test_CA)
+    #print "Train Accuracy: %f, Test Accuracy: %f" % (train_CA, test_CA)
+    train_stats = get_stats(train_results)
+    test_stats = get_stats(test_results)
+
+    print "Train:\n%s" % str(train_stats)
+    print "\nTest:\n%s" % str(test_stats)
+
+
