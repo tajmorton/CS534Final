@@ -26,3 +26,29 @@ def partition_data(data, percent_train = 0.5):
 
     return (train, test)
 
+"""
+Computes training accuracy of a model over the given
+dataset. Returns a tuple containing the classification
+accuracy and the ExperimentResults object for further
+tests (if desired).
+"""
+def test_classifier(model, data):
+    res = orngTest.testOnData( (model,), data) # testOnData requires a list of models, so convert model into a tuple of length 1
+
+    class_accuracy = orngStat.CA(res)[0]
+    return class_accuracy, res
+
+def get_confusion_matrix(results, cutoff = 0.5):
+    cms = orngStat.confusionMatrices(results, cutoff = cutoff)
+
+    return cms[0]
+
+def get_stats(results):
+    result_dict = {}
+    cm = get_confusion_matrix(results)
+
+    result_dict['Accuracy'] = orngStat.CA(results)[0]
+    result_dict['Sensitivity'] = orngStat.sens(cm)
+    result_dict['Specificity'] = orngStat.spec(cm)
+
+    return result_dict

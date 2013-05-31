@@ -3,6 +3,7 @@
 import sys
 import Orange, orange, orngTest, orngStat
 import proj_utils
+import os
 
 """
 Trains a Naive Bayes classifier on the given dataset.
@@ -10,33 +11,6 @@ Trains a Naive Bayes classifier on the given dataset.
 def train_classifier(data):
     classifier = orange.BayesLearner(data)
     return classifier
-
-"""
-Computes training accuracy of a model over the given
-dataset. Returns a tuple containing the classification
-accuracy and the ExperimentResults object for further
-tests (is desired).
-"""
-def test_classifier(model, data):
-    res = orngTest.testOnData( (model,), data) # testOnData requires a list of models, so convert model into a tuple of length 1
-
-    class_accuracy = orngStat.CA(res)[0]
-    return class_accuracy, res
-
-def get_confusion_matrix(results, cutoff = 0.5):
-    cms = orngStat.confusionMatrices(results, cutoff = cutoff)
-
-    return cms[0]
-
-def get_stats(results):
-    result_dict = {}
-    cm = get_confusion_matrix(results)
-
-    result_dict['Accuracy'] = orngStat.CA(results)[0]
-    result_dict['Sensitivity'] = orngStat.sens(cm)
-    result_dict['Specificity'] = orngStat.spec(cm)
-
-    return result_dict
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -58,4 +32,10 @@ if __name__ == "__main__":
     print "Train:\n%s" % str(train_stats)
     print "\nTest:\n%s" % str(test_stats)
 
+    f = open(os.path.dirname(__file__) + '\\naiveBayesResults.txt', 'w+');
+    f.write("Train:\n");
+    f.write(str(train_stats) + "\n");
+    f.write("Test:\n");
+    f.write(str(test_stats));
+    f.close();
 
