@@ -22,20 +22,20 @@ if __name__ == "__main__":
     train_data, test_data = proj_utils.partition_data(data)
 
     model = train_classifier(train_data)
-    train_CA, train_results = test_classifier(model, train_data)
-    test_CA, test_results = test_classifier(model, test_data)
+    train_CA, train_results = proj_utils.test_classifier(model, train_data)
+    test_CA, test_results = proj_utils.test_classifier(model, test_data)
 
     #print "Train Accuracy: %f, Test Accuracy: %f" % (train_CA, test_CA)
-    train_stats = get_stats(train_results)
-    test_stats = get_stats(test_results)
+    train_stats = proj_utils.get_stats(train_results)
+    test_stats = proj_utils.get_stats(test_results)
 
     print "Train:\n%s" % str(train_stats)
     print "\nTest:\n%s" % str(test_stats)
 
-    f = open(os.path.dirname(__file__) + '\\naiveBayesResults.txt', 'w+');
-    f.write("Train:\n");
-    f.write(str(train_stats) + "\n");
-    f.write("Test:\n");
-    f.write(str(test_stats));
-    f.close();
+    f = open(os.path.dirname(__file__) + '\\naiveBayesResults.txt', 'w+')
+    f.write("Train:\n")
+    f.write(str(train_stats) + "\n")
+    f.write("Test:\n")
+    f.write(str(test_stats))
+    f.close()
 

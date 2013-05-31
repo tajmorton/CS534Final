@@ -1,6 +1,8 @@
 # Helper functions for dealing with data
 import orange
 import Orange
+import orngTest
+import orngStat
 
 def load_data(filename):
     return Orange.data.Table(filename)
@@ -26,6 +28,16 @@ def partition_data(data, percent_train = 0.5):
 
     return (train, test)
 
+def get_stats(results):
+    result_dict = {}
+    cm = get_confusion_matrix(results)
+
+    result_dict['Accuracy'] = orngStat.CA(results)[0]
+    result_dict['Sensitivity'] = orngStat.sens(cm)
+    result_dict['Specificity'] = orngStat.spec(cm)
+
+    return result_dict
+
 """
 Computes training accuracy of a model over the given
 dataset. Returns a tuple containing the classification
@@ -42,13 +54,3 @@ def get_confusion_matrix(results, cutoff = 0.5):
     cms = orngStat.confusionMatrices(results, cutoff = cutoff)
 
     return cms[0]
-
-def get_stats(results):
-    result_dict = {}
-    cm = get_confusion_matrix(results)
-
-    result_dict['Accuracy'] = orngStat.CA(results)[0]
-    result_dict['Sensitivity'] = orngStat.sens(cm)
-    result_dict['Specificity'] = orngStat.spec(cm)
-
-    return result_dict
