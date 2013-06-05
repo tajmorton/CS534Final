@@ -1,0 +1,56 @@
+SVD Results:
+With 50 principal components: (How much of the variance does this explain?)
+
+=== On Training Data (at 0.5 cutoff): ===
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   ad nonad
+     ad     173     6
+     nonad   57  1404
+                                          
+               Accuracy : 0.9616          
+                 95% CI : (0.9511, 0.9704)
+    No Information Rate : 0.8598          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.8244          
+ Mcnemar's Test P-Value : 2.988e-10       
+                                          
+            Sensitivity : 0.9957          
+            Specificity : 0.7522          
+         Pos Pred Value : 0.9610          
+         Neg Pred Value : 0.9665          
+             Prevalence : 0.8598          
+         Detection Rate : 0.8561          
+   Detection Prevalence : 0.8909          
+                                          
+       'Positive' Class : nonad           
+-------------------
+
+=== On Test Data (at 0.5 cutoff): ===
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   ad nonad
+     ad     163     7
+     nonad   66  1403
+                                          
+               Accuracy : 0.9555          
+                 95% CI : (0.9443, 0.9649)
+    No Information Rate : 0.8603          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.7923          
+ Mcnemar's Test P-Value : 1.134e-11       
+                                          
+            Sensitivity : 0.9950          
+            Specificity : 0.7118          
+         Pos Pred Value : 0.9551          
+         Neg Pred Value : 0.9588          
+             Prevalence : 0.8603          
+         Detection Rate : 0.8560          
+   Detection Prevalence : 0.8963          
+                                          
+       'Positive' Class : nonad           
+
