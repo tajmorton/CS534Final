@@ -1,0 +1,4 @@
+Train:
+ Sensitivity: 0.991755319149, Specificity: 0.578445977965, Accuracy: 0.933897719982
+Test:
+ Sensitivity: 0.990780141844, Specificity: 0.575322503583, Accuracy: 0.932604263638
