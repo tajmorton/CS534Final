@@ -19,12 +19,14 @@ if __name__ == "__main__":
         print >> sys.stderr, "Usage: logistic_regression_filtered.py [TAB_FILE]"
         sys.exit(1)
 
-    whole_table = proj_utils.load_data(sys.argv[1])
-    start_domain = Orange.data.Domain(whole_table.domain.attributes[4:])
-    start_data = Orange.data.Table(start_domain, whole_table)
+    #whole_table = proj_utils.load_data(sys.argv[1])
+    #start_domain = Orange.data.Domain(whole_table.domain.attributes[4:])
+    #start_data = Orange.data.Table(start_domain, whole_table)
+
+    start_data = proj_utils.load_data(sys.argv[1])
 
     features = 10
-    train_data, test_data = proj_utils.partition_data(data)
+    train_data, test_data = proj_utils.partition_data(start_data)
     
 
 
