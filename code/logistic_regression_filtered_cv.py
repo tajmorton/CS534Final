@@ -37,7 +37,10 @@ if __name__ == "__main__":
         print >> sys.stderr, "Usage: logistic_regression_filtered_cv.py [TAB_FILE] [NUM_FOLDS] [NUM_FEATURES]"
         sys.exit(1)
 
-    start_data = proj_utils.load_data(sys.argv[1])
+    whole_table = proj_utils.load_data(sys.argv[1])
+    start_domain = Orange.data.Domain(whole_table.domain.attributes[4:])
+    start_data = Orange.data.Table(start_domain, whole_table)
+
 
     cv_folds = int(sys.argv[2])
     features = int(sys.argv[3])
