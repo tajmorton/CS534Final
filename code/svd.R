@@ -34,3 +34,16 @@ train_models_with_pc_range <- function(pc_ranges, features, classes, training_in
     row.names(results_table) <- pc_ranges
     return(results_table)
 }
+
+get_feature_weight_vector <- function(model, s = NULL) {
+    if (is.null(s)) {
+        s = model$lambda.1se
+    }
+
+    m_weights <- coef(model, s=s) # get sparse matrix with weights
+    v_weights <- as.vector(m_weights)
+    names(v_weights) <- dimnames(m_weights)[[1]]
+
+    return(v_weights)
+}
+
