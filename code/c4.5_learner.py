@@ -24,17 +24,23 @@ if __name__ == "__main__":
     data = proj_utils.load_data(sys.argv[1])
 
     train_data, test_data = proj_utils.partition_data(data)
-    resampled_train_data = proj_utils.oversample_class(train_data, 'ad', proportions)
 
-    model = train_classifier(resampled_train_data)
-    train_CA, train_results = proj_utils.test_classifier(model, resampled_train_data)
-    test_CA, test_results = proj_utils.test_classifier(model, test_data)
+    print "\"Proportion\"",
+    proj_utils.print_csv_header()
+    for prop in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0):
+        resampled_train_data = proj_utils.oversample_class(train_data, 'ad', prop)
 
-    #print "Train Accuracy: %f, Test Accuracy: %f" % (train_CA, test_CA)
-    train_stats = proj_utils.get_stats(train_results)
-    test_stats = proj_utils.get_stats(test_results)
+        model = train_classifier(resampled_train_data)
+        train_CA, train_results = proj_utils.test_classifier(model, resampled_train_data)
+        test_CA, test_results = proj_utils.test_classifier(model, test_data)
 
-    print "Train:\n%s" % str(train_stats)
-    print "\nTest:\n%s" % str(test_stats)
+        #print "Train Accuracy: %f, Test Accuracy: %f" % (train_CA, test_CA)
+        #train_stats = proj_utils.get_stats(train_results)
+        test_stats = proj_utils.get_stats(test_results)
+
+        #print "Train:\n%s" % str(train_stats)
+        #print "\nTest:\n%s" % str(test_stats)
+        print "%f, " % prop,
+        proj_utils.print_results_csv(test_stats)
 
 

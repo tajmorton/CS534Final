@@ -40,9 +40,9 @@ def oversample_class(data, class_attr, proportion):
 
     total_needed = proportion*len(other_class)
     num_to_take = int(round(total_needed - len(matching_class)))
-    print "Need to take %d examples (%d total needed). Class size: %d %d" % (num_to_take, total_needed, len(matching_class), len(other_class))
+    #print "Need to take %d examples (%d total needed). Class size: %d %d" % (num_to_take, total_needed, len(matching_class), len(other_class))
     
-    if (need_to_take < 1):
+    if (num_to_take < 1):
         print "Can't undersample--returning original data."
         return new_data
 
@@ -52,7 +52,7 @@ def oversample_class(data, class_attr, proportion):
 
     matching_class = filter(lambda x: x.get_class() == class_attr, new_data)
     other_class = filter(lambda x: x.get_class() != class_attr, new_data)
-    print "Resampled data: %d %d" % (len(matching_class), len(other_class))
+    #print "Resampled data: %d %d" % (len(matching_class), len(other_class))
     return new_data
 
 def get_stats(results):
@@ -81,3 +81,9 @@ def get_confusion_matrix(results, cutoff = 0.5):
     cms = orngStat.confusionMatrices(results, cutoff = cutoff)
 
     return cms[0]
+
+def print_csv_header():
+    print '"Accuracy", "Sensitivity", "Specificity"'
+
+def print_results_csv(results):
+    print "%.5f, %.5f, %.5f" % (results['Accuracy'], results['Sensitivity'], results['Specificity'])
