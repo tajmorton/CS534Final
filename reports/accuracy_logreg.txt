@@ -1,0 +1,28 @@
+Accuracy on 50/50 split test/train data (CV over training)
+
+Test Partition Results:
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   ad nonad
+     ad     183     5
+     nonad   46  1405
+                                          
+               Accuracy : 0.9689          
+                 95% CI : (0.9593, 0.9767)
+    No Information Rate : 0.8603          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.8601          
+ Mcnemar's Test P-Value : 2.13e-08        
+                                          
+            Sensitivity : 0.9965          
+            Specificity : 0.7991          
+         Pos Pred Value : 0.9683          
+         Neg Pred Value : 0.9734          
+             Prevalence : 0.8603          
+         Detection Rate : 0.8572          
+   Detection Prevalence : 0.8853          
+                                          
+       'Positive' Class : nonad           
+
