@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     train_data, test_data = proj_utils.partition_data(data)
 
-    model = train_classifier(train_data, type, filter)
+    model = train_classifier(train_data, type, features)
     train_CA, train_results = proj_utils.test_classifier(model, train_data)
     test_CA, test_results = proj_utils.test_classifier(model, test_data)
 

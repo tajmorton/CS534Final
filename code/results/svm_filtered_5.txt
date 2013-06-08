@@ -1,0 +1,6 @@
+Train:
+{'Sensitivity': 0.9929078014184397, 'Specificity': 0.6608695652173913, 'Accuracy': 0.9463414634146341}
+Test:
+{'Sensitivity': 0.9886524822695035, 'Specificity': 0.6462882096069869, 'Accuracy': 0.9408175716900549}
+Features Chosen:
+[url*ads=1, ancurl*redirect=1, ancurl*com=1, ancurl*adclick=1, ancurl*cid=1, image_class]
