@@ -3,6 +3,7 @@ import orange
 import Orange
 import orngTest
 import orngStat
+import random
 
 def load_data(filename):
     return Orange.data.Table(filename)
@@ -27,6 +28,32 @@ def partition_data(data, percent_train = 0.5):
     test = data.select(train_indices, negate=True)
 
     return (train, test)
+
+def oversample_class(data, class_attr, proportion):
+    new_data = Orange.data.Table(data)
+
+    matching_class = filter(lambda x: x.get_class() == class_attr, data)
+    other_class = filter(lambda x: x.get_class() != class_attr, data)
+
+    # want to figure out how many examples to sample so that
+    # len(matching_class)/len(other_class) = proportion
+
+    total_needed = proportion*len(other_class)
+    num_to_take = int(round(total_needed - len(matching_class)))
+    print "Need to take %d examples (%d total needed). Class size: %d %d" % (num_to_take, total_needed, len(matching_class), len(other_class))
+    
+    if (need_to_take < 1):
+        print "Can't undersample--returning original data."
+        return new_data
+
+    sampled =  [random.choice(matching_class) for _ in xrange(num_to_take)]
+    for s in sampled:
+        new_data.append(s)
+
+    matching_class = filter(lambda x: x.get_class() == class_attr, new_data)
+    other_class = filter(lambda x: x.get_class() != class_attr, new_data)
+    print "Resampled data: %d %d" % (len(matching_class), len(other_class))
+    return new_data
 
 def get_stats(results):
     result_dict = {}
