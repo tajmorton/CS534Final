@@ -1,0 +1,5 @@
+Train:
+{'Sensitivity': 0.9971631205673759, 'Specificity': 0.8608695652173913, 'Accuracy': 0.9780487804878049}
+
+Test:
+{'Sensitivity': 0.9914893617021276, 'Specificity': 0.8034934497816594, 'Accuracy': 0.9652226967663209}
