@@ -19,3 +19,18 @@ test_model <- function(model, features, classes, testing_indices, s = NULL) {
     pred_factors <- factor(predict(model, newx=features[testing_indices,], type="class", s=s), levels=levels(classes[testing_indices]))
     return(confusionMatrix(data=pred_factors, classes[testing_indices], positive=levels(classes[testing_indices])[-1]))
 }
+
+train_models_with_pc_range <- function(pc_ranges, features, classes, training_indices, nfolds = 10, family="binomial") {
+    results_table <- data.frame()
+    for (pcs in pc_ranges) {
+        print(pcs)
+        model <- train_model(features[,1:pcs, drop=FALSE], classes, training_indices, nfolds, family)
+        model_results <- test_model(model, features[,1:pcs], classes, -training_indices, s=model$lambda.min)
+
+        results_table <- rbind(results_table, c(model_results$byClass, model_results$overall["Accuracy"]))
+        colnames(results_table) <- c(names(model_results$byClass), "Accuracy")
+    }
+
+    row.names(results_table) <- pc_ranges
+    return(results_table)
+}
