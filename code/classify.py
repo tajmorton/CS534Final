@@ -53,9 +53,10 @@ if __name__ == "__main__":
 	
     if features != 0:
 		print "Features selected:\n%s" % str(model.domain)
-		filename = os.path.dirname(__file__) + '\\results\\' + type + '_filtered_' + str(features) + '.txt'
+		filename = '%s%sresults%s%s_filtered_%s.txt' % (os.path.dirname(__file__), os.sep, os.sep, type, str(features)) #+ type + '_filtered_' + str(features) + '.txt'
     else:
-		filename = os.path.dirname(__file__) + '\\results\\' + type + '.txt'
+		filename = '%s%sresults%s%s.txt' % (os.path.dirname(__file__), os.sep, os.sep, type)
+    print filename
 		
     f = open(filename, 'w+')
     f.write("Train:\n")
