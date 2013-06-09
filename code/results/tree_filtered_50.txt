@@ -1,0 +1,6 @@
+Train:
+{'Sensitivity': 0.9929078014184397, 'Specificity': 0.7217391304347827, 'Accuracy': 0.9548780487804878}
+Test:
+{'Sensitivity': 0.9879432624113476, 'Specificity': 0.7074235807860262, 'Accuracy': 0.9487492373398414}
+Features Chosen:
+[url*ads, ancurl*redirect, ancurl*com, ancurl*adclick, ancurl*cid, ancurl*area, ancurl*click, ancurl*event, ancurl*adid, ancurl*type, ancurl*ng+type, ancurl*runid, ancurl*event+ng, ancurl*ng, ancurl*type+click, ancurl*profileid, ancurl*familyid, ancurl*groupid, ancurl*tagvalues, ancurl*redirect+http, ancurl*http+2f, ancurl*groupid+1, ancurl*1+familyid, ancurl*2f, ancurl*2f+2fwww, ancurl*click+profileid, ancurl*2fwww, alt*here+for, alt*for, url*msn.com, ancurl*msn.com, url*media, url*ads+media, url*blipverts, url*advertising+blipverts, url*wired.com, url*static.wired.com, url*advertising, ancurl*nsads.hotwired.com, ancurl*hotwired.com, ancurl*tagvalues+13, ancurl*id, url*go2net, url*images.go2net.com, url*go2net+ads, url*go2net.com, ancurl*magic+adclick, ancurl*plug.go2net.com, ancurl*gid, ancurl*qual, image_class]
