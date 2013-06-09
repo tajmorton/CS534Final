@@ -15,8 +15,8 @@ def train_classifier(data, type, filter):
 		learner = orange.BayesLearner()
 	elif type == "svm" or type == "linear_svm":
 		learner = Orange.classification.svm.LinearSVMLearner()
-	elif type == "logreg" or type == "regression":
-		learner = Orange.classification.logreg.LogRegLearner()
+	#elif type == "logreg" or type == "regression":
+	#	learner = Orange.classification.logreg.LogRegLearner()
 	else:
 		print "Invalid Learner Type\n"
 		exit()
