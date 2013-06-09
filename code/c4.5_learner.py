@@ -27,8 +27,9 @@ if __name__ == "__main__":
 
     print "\"Proportion\"",
     proj_utils.print_csv_header()
-    for prop in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0):
-        resampled_train_data = proj_utils.oversample_class(train_data, 'ad', prop)
+    #for prop in (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0):
+    for prop in (1.0,1.5,2.0,2.5,3.0,3.5):
+        resampled_train_data = proj_utils.undersample_class(train_data, 'nonad', prop)
 
         model = train_classifier(resampled_train_data)
         train_CA, train_results = proj_utils.test_classifier(model, resampled_train_data)
