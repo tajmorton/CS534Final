@@ -1,0 +1,6 @@
+Train:
+{'Sensitivity': 0.9929078014184397, 'Specificity': 0.7, 'Accuracy': 0.9518292682926829}
+Test:
+{'Sensitivity': 0.9886524822695035, 'Specificity': 0.6724890829694323, 'Accuracy': 0.9444783404514948}
+Features Chosen:
+[url*ads=1, ancurl*redirect=1, ancurl*com=1, ancurl*adclick=1, ancurl*cid=1, ancurl*area=1, ancurl*click=1, ancurl*event=1, ancurl*adid=1, ancurl*type=1, ancurl*ng+type=1, ancurl*runid=1, ancurl*event+ng=1, ancurl*ng=1, ancurl*type+click=1, ancurl*profileid=1, ancurl*familyid=1, ancurl*groupid=1, ancurl*tagvalues=1, ancurl*redirect+http=1, image_class]

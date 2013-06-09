@@ -1,0 +1,6 @@
+Train:
+{'Sensitivity': 0.9929078014184397, 'Specificity': 0.7043478260869566, 'Accuracy': 0.9524390243902439}
+Test:
+{'Sensitivity': 0.9886524822695035, 'Specificity': 0.6724890829694323, 'Accuracy': 0.9444783404514948}
+Features Chosen:
+[url*ads=1, ancurl*redirect=1, ancurl*com=1, ancurl*adclick=1, ancurl*cid=1, ancurl*area=1, ancurl*click=1, ancurl*event=1, ancurl*adid=1, ancurl*type=1, ancurl*ng+type=1, ancurl*runid=1, ancurl*event+ng=1, ancurl*ng=1, ancurl*type+click=1, ancurl*profileid=1, ancurl*familyid=1, ancurl*groupid=1, ancurl*tagvalues=1, ancurl*redirect+http=1, ancurl*http+2f=1, ancurl*groupid+1=1, ancurl*1+familyid=1, ancurl*2f=1, ancurl*2f+2fwww=1, ancurl*click+profileid=1, ancurl*2fwww=1, alt*here+for=1, alt*for=1, url*msn.com=1, ancurl*msn.com=1, url*media=1, url*ads+media=1, url*blipverts=1, url*advertising+blipverts=1, url*wired.com=1, url*static.wired.com=1, url*advertising=1, ancurl*nsads.hotwired.com=1, ancurl*hotwired.com=1, ancurl*tagvalues+13=1, ancurl*id=1, url*go2net=1, url*images.go2net.com=1, url*go2net+ads=1, url*go2net.com=1, ancurl*magic+adclick=1, ancurl*plug.go2net.com=1, ancurl*gid=1, ancurl*qual=1, image_class]
